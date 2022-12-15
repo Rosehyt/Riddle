@@ -24,7 +24,7 @@ def webhook3():
             #random = random.randint(1,11))
             random = 1
             if(random==dict["num"])
-                info += dict["Question"] + dict["Answer"] + dict["Explanation"] + dict["Link"]
+                info += dict["Question"] +"\n"+ dict["Answer"] +"\n"+ dict["Explanation"] +"\n"+ dict["Link"]
                 return info
  '''      elif(keyword==dict["place"]):
             random = random.randint(1,7))
