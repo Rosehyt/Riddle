@@ -13,14 +13,14 @@ app = Flask(name)
 @app.route("/")
 def index():
     homepage = "<h1>猜謎語</h1>"
-    homepage += "<a href=/riddle>物品型謎語</a><br>"
+    homepage += "<a href=/item>物品型謎語</a><br>"
     homepage += "<a href=/place>地方型謎語</a><br>"
     homepage += "<a href=/slang>俚語型謎語</a><br>"
     homepage += "<a href=/random>隨機型謎語</a><br>"
     return homepage
 
-@app.route("/riddle",methods=["GET", "POST"])
-def riddle():
+@app.route("/item",methods=["GET", "POST"])
+def item():
 
     result =""
 
