@@ -26,7 +26,7 @@ def item():
 
     if request.method == "POST":
         keyword = request.form["keyword"]
-
+        db = firestore.client()
         collection_ref = db.collection("item")
         docs = collection_ref.get()
         for doc in docs:
