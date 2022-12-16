@@ -8,7 +8,7 @@ db = firestore.client()
 from flask import Flask, render_template, request
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(name)
 
 @app.route("/")
 def index():
@@ -19,8 +19,8 @@ def index():
     homepage += "<a href=/random>隨機型謎語</a><br>"
     return homepage
 
-@app.route("/item",methods=["GET", "POST"])
-def item():
+@app.route("/riddle",methods=["GET", "POST"])
+def riddle():
 
     result =""
 
@@ -38,4 +38,4 @@ def item():
             result = "是怎樣?皮啊?給我重輸"
         return result
     else:
-        return render_template("item.html")
+        return render_template("riddle.html")
