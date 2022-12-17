@@ -33,7 +33,7 @@ def riddle():
         for doc in docs:
             dict = doc.to_dict()
             if keyword in dict["num"]:
-                result = format(dict["Question"])
+                result = "問題:"+format(dict["Question"])+"<br>"+format(dict["Answer"])+"<br>"+format(dict["Explanation"])+"<br>"+format(dict["Link"])
 
         if result == "":
             result = "是怎樣?皮啊?給我重輸"
