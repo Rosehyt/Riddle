@@ -40,4 +40,4 @@ def riddle():
             result = "是怎樣?皮啊?給我重輸"
         return result
     else:
-        return render_template("riddle.html")
+        return render_template("index.html")
