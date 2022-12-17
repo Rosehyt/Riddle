@@ -23,14 +23,15 @@ def index():
 
 @app.route("/riddle",methods=["GET", "POST"])
 def riddle():
-
-    result =""
-
     if request.method == "POST":
         keyword = request.form["keyword"]
+        
         db = firestore.client()
         collection_ref = db.collection("item")
         docs = collection_ref.get()
+        
+        result =""
+
         for doc in docs:
             dict = doc.to_dict()
             if keyword in dict["num"]:
