@@ -21,11 +21,18 @@ def webhook3():
         dict = doc.to_dict()
 
         if(keyword==dict["item"]):
-            #random = random.randint(1,11))
-            random = 1
-            if(random==dict["num"])
-                info += dict["Question"] +"\n"+ dict["Answer"] +"\n"+ dict["Explanation"] +"\n"+ dict["Link"]
-                return info
+            result =""
+
+            for doc in docs:
+                dict = doc.to_dict()
+                if keyword in dict["num"]:
+                    result = "問題 : <br>"+format(dict["Question"])+"<br>"+"答案 : <br>"+format(dict["Answer"])+"<br>"+"解釋 : <br>"+format(dict["Explanation"])+"<br>"
+
+            if result == "":
+                result = "是怎樣?皮啊?給我重輸"
+            return result
+            
+           
  '''      elif(keyword==dict["place"]):
             random = random.randint(1,7))
             if(random==dict["num"])
