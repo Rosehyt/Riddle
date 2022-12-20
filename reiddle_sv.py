@@ -21,18 +21,18 @@ def webhook():
         collection_ref = db.collection("riddle")
         docs = collection_ref.get()
         dict = doc.to_dict()
-
-        if(keyword==dict["item"]):
+        result =""
+        
+        if(keyword=="物品"):
             n = random.randint(1, 10)
         
             db = firestore.client()
             collection_ref = db.collection("item")
             docs = collection_ref.get()
         
-            result =""
 
             for doc in docs:
-                dict = doc.to_dict()
+                
                 if n in dict["num"]:
                     info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
                     return jsonify(info)
