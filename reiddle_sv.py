@@ -47,7 +47,7 @@ def webhook():
                     return make_response(jsonify({"fulfillmentText": info}))
             if result == "":
                 result = "是怎樣?皮啊?給我重輸"
-                return homepage
+                return render_template("riddle.html")
             # else:
             #     return render_template("riddle.html")
 
