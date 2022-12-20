@@ -35,14 +35,11 @@ def webhook():
         if(keyword=="物品"):
             n = random.randint(1, 10)
         
-            db = firestore.client()
             collection_ref = db.collection("item")
             docs = collection_ref.get()
         
-
-            for doc in docs:
-                
-                if n in dict["num"]:
+            for doc in docs: 
+                if n == dict["num"]:
                     info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
                     return make_response(jsonify({"fulfillmentText": info}))
         else:
