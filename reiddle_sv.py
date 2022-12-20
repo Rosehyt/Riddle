@@ -27,12 +27,13 @@ def webhook():
     if (action == "keywordchoice"):
         keyword =  req.get("queryResult").get("parameters").get("keyword")
        
-        collection_ref = db.collection("RIDDLE")
-        docs = collection_ref.get()
-        
         result =""
         
         if(keyword=="物品"):
+
+            collection_ref = db.collection("item")
+            docs = collection_ref.get()
+            
             n = random.randint(1, 10)
         
             i = docs.to_dict()["item"]
