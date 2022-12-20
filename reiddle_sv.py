@@ -27,7 +27,7 @@ def webhook():
     if (action == "keywordchoice"):
         keyword =  req.get("queryResult").get("parameters").get("keyword")
        
-        collection_ref = db.collection("riddle")
+        collection_ref = db.collection("RIDDLE")
         docs = collection_ref.get()
         
         result =""
