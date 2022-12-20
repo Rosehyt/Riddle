@@ -47,7 +47,7 @@ def webhook():
                     return make_response(jsonify({"fulfillmentText": info}))
         else:
             result = "是怎樣?皮啊?給我重輸"
-            return render_template("riddle.html")
+            return make_response(jsonify({"fulfillmentText": result}))
             # else:
             #     return render_template("riddle.html")
 
