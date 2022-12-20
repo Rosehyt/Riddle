@@ -45,9 +45,9 @@ def webhook():
                 if n in dict["num"]:
                     info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
                     return make_response(jsonify({"fulfillmentText": info}))
-            if result == "":
-                result = "是怎樣?皮啊?給我重輸"
-                return render_template("riddle.html")
+    else:
+        result = "是怎樣?皮啊?給我重輸"
+        return render_template("riddle.html")
             # else:
             #     return render_template("riddle.html")
 
