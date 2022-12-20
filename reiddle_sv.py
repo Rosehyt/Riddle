@@ -42,7 +42,7 @@ def webhook():
                 dict = doc.to_dict() 
                 if n == dict["num"]:
                     info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
-                    return make_response(jsonify({"fulfillmentText": info}))
+                    return jsonify({"fulfillmentText": info})
         else:
             result = "是怎樣?皮啊?給我重輸"
             return make_response(jsonify({"fulfillmentText": result}))
