@@ -30,10 +30,10 @@ def webhook():
         result =""
 
         
-    if (action == "rateChoice"):
-        rate =  req.get("queryResult").get("parameters").get("keyword")
-        info = "您選擇的電影分級是：" + rate
-    return make_response(jsonify({"fulfillmentText": info}))
+        if (action == "rateChoice"):
+            rate =  req.get("queryResult").get("parameters").get("keyword")
+            info = "您選擇的電影分級是：" + rate
+        return make_response(jsonify({"fulfillmentText": info}))
 
         
         if(keyword=="物品"):
