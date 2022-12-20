@@ -9,7 +9,7 @@ db = firestore.client()
 
 app = Flask(__name__)
 
-@app.route("/webhook3", methods=["POST"])
+@app.route("/webhook", methods=["POST"])
 def webhook3():
     req = request.get_json(force=True)
     action =  req.get("queryResult").get("action")
