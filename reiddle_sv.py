@@ -36,24 +36,24 @@ def webhook():
         return make_response(jsonify({"fulfillmentText": info}))
 
         
-        if(keyword=="物品"):
+        # if(keyword=="物品"):
 
-            collection_ref = db.collection("item")
-            docs = collection_ref.get()
+        #     collection_ref = db.collection("item")
+        #     docs = collection_ref.get()
             
-            n = random.randint(1, 10)
+        #     n = random.randint(1, 10)
         
-            i = docs.to_dict()["num"]
+        #     i = docs.to_dict()["num"]
             
         
-            for doc in i:
-                dict = doc.to_dict() 
-                if n == dict["num"]:
-                    info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
-                    return jsonify({"fulfillmentText": info})
-        else:
-            result = "是怎樣?皮啊?給我重輸"
-            return make_response(jsonify({"fulfillmentText": result}))
+        #     for doc in i:
+        #         dict = doc.to_dict() 
+        #         if n == dict["num"]:
+        #             info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
+        #             return jsonify({"fulfillmentText": info})
+        # else:
+        #     result = "是怎樣?皮啊?給我重輸"
+        #     return make_response(jsonify({"fulfillmentText": result}))
             # else:
             #     return render_template("riddle.html")
 
