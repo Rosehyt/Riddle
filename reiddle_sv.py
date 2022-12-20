@@ -36,7 +36,7 @@ def webhook():
             
             n = random.randint(1, 10)
         
-            i = docs.to_dict()["item"]
+            i = docs.to_dict()["num"]
             
         
             for doc in i:
