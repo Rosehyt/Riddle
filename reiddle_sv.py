@@ -22,8 +22,7 @@ def index():
 def webhook():
     req = request.get_json(force=True)
     action =  req.get("queryResult").get("action")
-    session = req.get("session")[-12:-1]  #取最後12個字元
-
+    info = action
     if (action == "keywordchoice"):
         keyword =  req.get("queryResult").get("parameters").get("keyword")
        
