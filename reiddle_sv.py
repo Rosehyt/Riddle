@@ -23,13 +23,13 @@ def webhook():
     req = request.get_json(force=True)
     action =  req.get("queryResult").get("action")
     info = action
-    if (action == "keywordchoice"):
-        keyword =  req.get("queryResult").get("parameters").get("keyword")
+    # if (action == "keywordchoice"):
+    #     keyword =  req.get("queryResult").get("parameters").get("keyword")
        
-        result =""
+    #     result =""
 
-        rate =  req.get("queryResult").get("parameters").get("keyword")
-        info = "您選擇的電影分級是：" + rate
+    #     rate =  req.get("queryResult").get("parameters").get("keyword")
+    #     info = "您選擇的電影分級是：" + rate
     return make_response(jsonify({"fulfillmentText": info}))
 
         
