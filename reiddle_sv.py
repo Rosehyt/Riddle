@@ -23,7 +23,7 @@ def webhook3():
         dict = doc.to_dict()
 
         if(keyword==dict["item"]):
-            n = request.form["keyword"]
+            n = random.randint(1, 10)
         
             db = firestore.client()
             collection_ref = db.collection("item")
