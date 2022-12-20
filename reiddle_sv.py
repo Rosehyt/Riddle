@@ -67,45 +67,45 @@ def webhook():
             # return result
             
            
- '''      elif(keyword==dict["place"]):
-            random = random.randint(1,7))
-            if(random==dict["num"])
-                info+=(dict["Question"])
-                guessnum = int(req.get("queryResult").get("parameters").get("any"))
-                if guessnum == dict["Answer"]:
-                    reply += "恭喜你答對了\n" 
-                    reply += dict["Link"]
-                    return mjsonify(reply)
-                else:
-                    reply += "喔喔你答錯了喔，請繼續猜呦\n" 
-                    return make_response(jsonify({"fulfillmentText": reply})) 
+    #    elif(keyword==dict["place"]):
+    #         random = random.randint(1,7))
+    #         if(random==dict["num"])
+    #             info+=(dict["Question"])
+    #             guessnum = int(req.get("queryResult").get("parameters").get("any"))
+    #             if guessnum == dict["Answer"]:
+    #                 reply += "恭喜你答對了\n" 
+    #                 reply += dict["Link"]
+    #                 return mjsonify(reply)
+    #             else:
+    #                 reply += "喔喔你答錯了喔，請繼續猜呦\n" 
+    #                 return make_response(jsonify({"fulfillmentText": reply})) 
 
-        elif(keyword==dict["random"]):
-            random = random.randint(1,11))
-            if(random==dict["num"])
-                info+=(dict["Question"])
-                guessnum = int(req.get("queryResult").get("parameters").get("any"))
-                if guessnum == dict["Answer"]:
-                    reply += "恭喜你答對了\n" 
-                    reply += dict["Link"]
-                    return ("fulfillmentText": reply)
-                else:
-                    reply += "喔喔你答錯了喔，請繼續猜呦\n" 
-                    return make_response(jsonify({"fulfillmentText": reply}))
+    #     elif(keyword==dict["random"]):
+    #         random = random.randint(1,11))
+    #         if(random==dict["num"])
+    #             info+=(dict["Question"])
+    #             guessnum = int(req.get("queryResult").get("parameters").get("any"))
+    #             if guessnum == dict["Answer"]:
+    #                 reply += "恭喜你答對了\n" 
+    #                 reply += dict["Link"]
+    #                 return ("fulfillmentText": reply)
+    #             else:
+    #                 reply += "喔喔你答錯了喔，請繼續猜呦\n" 
+    #                 return make_response(jsonify({"fulfillmentText": reply}))
 
-        elif(keyword==dict["slang"]):
-            random = random.randint(1,7))
-            if(random==dict["num"])
-                info+=(dict["Question"])
-                guessnum = int(req.get("queryResult").get("parameters").get("any"))
-                if guessnum == dict["Answer"]:
-                    reply += "恭喜你答對了\n" 
-                    reply += dict["Link"]
-                    return jsonify(reply)
-                else:
-                    reply += "喔喔你答錯了喔，請繼續猜呦\n" 
-                    return make_response(jsonify({"fulfillmentText": reply})) 
-'''
+    #     elif(keyword==dict["slang"]):
+    #         random = random.randint(1,7))
+    #         if(random==dict["num"])
+    #             info+=(dict["Question"])
+    #             guessnum = int(req.get("queryResult").get("parameters").get("any"))
+    #             if guessnum == dict["Answer"]:
+    #                 reply += "恭喜你答對了\n" 
+    #                 reply += dict["Link"]
+    #                 return jsonify(reply)
+    #             else:
+    #                 reply += "喔喔你答錯了喔，請繼續猜呦\n" 
+    #                 return make_response(jsonify({"fulfillmentText": reply})) 
+
 
 if __name__ == "__main__":
     app.run()
