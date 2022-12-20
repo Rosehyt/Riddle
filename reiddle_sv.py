@@ -29,16 +29,17 @@ def webhook():
        
         collection_ref = db.collection("riddle")
         docs = collection_ref.get()
-        dict = doc.to_dict()
+        
         result =""
         
         if(keyword=="物品"):
             n = random.randint(1, 10)
         
-            collection_ref = db.collection("item")
-            docs = collection_ref.get()
+            i = docs.to_dict()["item"]
+            
         
-            for doc in docs: 
+            for doc in i:
+                dict = doc.to_dict() 
                 if n == dict["num"]:
                     info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
                     return make_response(jsonify({"fulfillmentText": info}))
