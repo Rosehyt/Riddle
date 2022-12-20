@@ -10,7 +10,7 @@ db = firestore.client()
 app = Flask(__name__)
 
 @app.route("/webhook", methods=["POST"])
-def webhook3():
+def webhook():
     req = request.get_json(force=True)
     action =  req.get("queryResult").get("action")
     session = req.get("session")[-12:-1]  #取最後12個字元
