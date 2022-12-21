@@ -52,11 +52,11 @@ def webhook():
 	# info = "動作：" + action + "； 查詢內容：" + msg
 	# return make_response(jsonify({"fulfillmentText": info}))
 
-	if (action == "keywordchoice"):
+	if (action.__eq__("keywordchoice") ):
 		keyword = req.get("queryResult").get("queryText")
 		result =""
 		result += keyword
-		if(keyword=="物品"):
+		if(keyword.__eq__("物品") ):
 			n = random.randint(1, 10)
 			result +=n
 			collection_ref = db.collection("item")
