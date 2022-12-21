@@ -36,23 +36,23 @@ def riddle():
             dict = doc.to_dict()
             if keyword == dict["num"]:
                 result = "問題"+keyword+" : <br>"+format(dict["Question"])+"<br>"+"答案 : <br>"+format(dict["Answer"])+"<br>"+"解釋 : <br>"+format(dict["Explanation"])+"<br>"
-
+            
         if result == "":
             result = "是怎樣?皮啊?給我重輸"
         return result
     else:
         return render_template("riddle.html")
 
-# @app.route("/webhook", methods=["POST"])
-# def webhook():
-	# req = request.get_json(force=True)
-	# #action = req.get("queryResult").get("action")
-	# #session = req.get("session")[-12:-1]  #取最後12個字元
+@app.route("/webhook", methods=["POST"])
+def webhook():
+	req = request.get_json(force=True)
+	#action = req.get("queryResult").get("action")
+	#session = req.get("session")[-12:-1]  #取最後12個字元
 
-    # action =  req.get("queryResult").get("action")
-    # msg =  req.get("queryResult").get("queryText")
-    # info = "動作：" + action + "； 查詢內容：" + msg
-    # return make_response(jsonify({"fulfillmentText": info}))
+    action =  req.get("queryResult").get("action")
+    msg =  req.get("queryResult").get("queryText")
+    info = "動作：" + action + "； 查詢內容：" + msg
+    return make_response(jsonify({"fulfillmentText": info}))
 
 	# if (action == "keywordchoice"):
 	# 	keyword = req.get("queryResult").get("parameters").get("keyword")
