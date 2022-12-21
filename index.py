@@ -45,7 +45,7 @@ def riddle():
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
-    req = request.get_json(force=True)
+	req = request.get_json(force=True)
 	action = req.get("queryResult").get("action")
 	session = req.get("session")[-12:-1]  #取最後12個字元
 
