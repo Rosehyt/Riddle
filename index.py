@@ -45,14 +45,14 @@ def riddle():
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
-    	req = request.get_json(force=True)
+	req = request.get_json(force=True)
 # 	action = req.get("queryResult").get("action")
 # 	session = req.get("session")[-12:-1]  #取最後12個字元
 	
 	action =  req.get("queryResult").get("action")
-    	msg =  req.get("queryResult").get("queryText")
-    	info = "動作：" + action + "； 查詢內容：" + msg
-    	return make_response(jsonify({"fulfillmentText": info}))
+	msg =  req.get("queryResult").get("queryText")
+	info = "動作：" + action + "； 查詢內容：" + msg
+	return make_response(jsonify({"fulfillmentText": info}))
 
     # if (action == "keywordchoice"):
 	# 	keyword =  req.get("queryResult").get("queryText")
