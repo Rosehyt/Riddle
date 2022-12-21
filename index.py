@@ -53,7 +53,7 @@ def webhook():
 	# return make_response(jsonify({"fulfillmentText": info}))
 
 	if (action == "keywordchoice"):
-		keyword = req.get("queryResult").get("parameters").get("keyword")
+		keyword = req.get("queryResult").get("queryText")
 		result =""
 
 		if(keyword=="物品"):
