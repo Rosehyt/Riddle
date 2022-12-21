@@ -65,12 +65,12 @@ def webhook():
 			
 			for doc in docs:
 				dict = doc.to_dict()
-				if n == dict["num"]:
-                    found = True
+				if (n == dict["num"]):
+                    			found = True
 					result = "問題 : \n" +format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
 
 			if not found:
-                result += "很抱歉，目前無符合這個關鍵字的相關電影喔"
+                		result += "很抱歉，目前無符合這個關鍵字的相關電影喔"
 
 			return make_response(jsonify({"fulfillmentText": result}))
 
