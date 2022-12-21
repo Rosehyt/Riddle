@@ -58,7 +58,7 @@ def webhook():
 
 		if(keyword=="物品"):
 			n = random.randint(1, 10)
-			
+			result +=n
 			collection_ref = db.collection("item")
 			docs = collection_ref.get()
 			found = False
