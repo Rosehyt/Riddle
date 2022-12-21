@@ -50,7 +50,7 @@ def webhook():
 # 	session = req.get("session")[-12:-1]  #取最後12個字元
 	
 	action =  req.get("queryResult").get("action")
-	msg =  req.get("queryResult").get("queryText")
+# 	msg =  req.get("queryResult").get("queryText")
 	# info = "動作：" + action + "； 查詢內容：" + msg
 	# return make_response(jsonify({"fulfillmentText": info}))
 
@@ -67,7 +67,7 @@ def webhook():
 			for doc in docs:
 				dict = doc.to_dict()
 				if n == dict["num"]:
-					result = "問題"+ "\n" +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
+					result = "問題 : \n" +format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
 		return make_response(jsonify({"fulfillmentText": result}))
 	else:
 		result = "是怎樣?皮啊?給我重輸"
