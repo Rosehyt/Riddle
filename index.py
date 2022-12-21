@@ -64,7 +64,7 @@ def webhook():
 			
 			for doc in docs:
 				dict = doc.to_dict()
-				if n == format(dict["num"]):
+				if n == dict["num"]:
 					result = "問題"+ "\n" +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
 		return make_response(jsonify({"fulfillmentText": result}))
 	else:
