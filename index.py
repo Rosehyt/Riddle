@@ -54,7 +54,7 @@ def webhook():
 	# info = "動作：" + action + "； 查詢內容：" + msg
 	# return make_response(jsonify({"fulfillmentText": info}))
 
-    if (action == "keywordchoice"):
+    	if (action == "keywordchoice"):
 		keyword =  req.get("queryResult").get("queryText")
 
 		collection_ref = db.collection("riddle")
