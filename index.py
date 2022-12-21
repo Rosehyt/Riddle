@@ -47,7 +47,7 @@ def riddle():
 def webhook():
 	req = request.get_json(force=True)
 
-# 	session = req.get("session")[-12:-1]  #取最後12個字元
+	session = req.get("session")[-12:-1]  #取最後12個字元
 	
 	action =  req.get("queryResult").get("action")
 	msg =  req.get("queryResult").get("queryText")
