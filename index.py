@@ -45,7 +45,7 @@ def riddle():
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
-	req = request.get_json(force=True)
+    req = request.get_json(force=True)
 	action = req.get("queryResult").get("action")
 	session = req.get("session")[-12:-1]  #取最後12個字元
 
@@ -66,7 +66,7 @@ def webhook():
 			for doc in i:
 				dict = doc.to_dict()
 				if n == dict["num"]:
-					info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
+					info = "問題"+ "\n" +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
 		return make_response(jsonify({"fulfillmentText": info}))
 	else:
 		result = "是怎樣?皮啊?給我重輸"
