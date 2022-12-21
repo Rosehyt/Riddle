@@ -54,7 +54,7 @@ def webhook():
 	# info = "動作：" + action + "； 查詢內容：" + msg
 	# return make_response(jsonify({"fulfillmentText": info}))
 
-	if (action == "keywordchoice"):
+    if (action == "keywordchoice"):
 		keyword = req.get("queryResult").get("parameters").get("keyword")
 		collection_ref = db.collection("riddle")
 		docs = collection_ref.get()
@@ -64,7 +64,7 @@ def webhook():
 			
 			for doc in docs:
 				dict = doc.to_dict()
-				if n == dict["num"]:
+				if n == format(dict["num"]):
 					result = "問題"+ "\n" +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
 		return make_response(jsonify({"fulfillmentText": result}))
 	else:
