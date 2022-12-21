@@ -73,5 +73,4 @@ def webhook():
 		result = "是怎樣?皮啊?給我重輸"
 		return make_response(jsonify({"fulfillmentText": result}))
 
-if __name__ == "__main__":
-    app.run()
+
