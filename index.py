@@ -47,7 +47,7 @@ def riddle():
 def webhook():
 	req = request.get_json(force=True)
 
-	session = req.get("session")[-12:-1]  #取最後12個字元
+# 	session = req.get("session")[-12:-1]  #取最後12個字元
 	
 	action =  req.get("queryResult").get("action")
 	msg =  req.get("queryResult").get("queryText")
@@ -56,12 +56,14 @@ def webhook():
 
     	if (action == "keywordchoice"):
 		keyword = req.get("queryResult").get("parameters").get("keyword")
-		collection_ref = db.collection("riddle")
-		docs = collection_ref.get()
-		result =""
+		
 		if(keyword=="物品"):
 			n = random.randint(1, 10)
 			
+            		collection_ref = db.collection("riddle")
+		    	docs = collection_ref.get()
+		    	result =""
+
 			for doc in docs:
 				dict = doc.to_dict()
 				if n == dict["num"]:
@@ -72,4 +74,4 @@ def webhook():
 		return make_response(jsonify({"fulfillmentText": result}))
 
 if __name__ == "__main__":
-	app.run()
+    app.run()
