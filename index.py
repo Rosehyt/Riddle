@@ -14,34 +14,34 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    homepage = "<h1>猜謎語</h1>"
-    homepage += "<a href=/riddle>物品型謎語</a><br>"
-    homepage += "<a href=/place>地方型謎語</a><br>"
-    homepage += "<a href=/slang>俚語型謎語</a><br>"
-    homepage += "<a href=/random>隨機型謎語</a><br>"
-    return homepage
+	homepage = "<h1>猜謎語</h1>"
+    	homepage += "<a href=/riddle>物品型謎語</a><br>"
+    	homepage += "<a href=/place>地方型謎語</a><br>"
+    	homepage += "<a href=/slang>俚語型謎語</a><br>"
+    	homepage += "<a href=/random>隨機型謎語</a><br>"
+    	return homepage
 
 @app.route("/riddle",methods=["GET", "POST"])
 def riddle():
-    if request.method == "POST":
-        keyword = request.form["keyword"]
+    	if request.method == "POST":
+        	keyword = request.form["keyword"]
         
-        db = firestore.client()
-        collection_ref = db.collection("item")
-        docs = collection_ref.get()
+        	db = firestore.client()
+        	collection_ref = db.collection("item")
+        	docs = collection_ref.get()
         
-        result =""
+        	result =""
 
-        for doc in docs:
-            dict = doc.to_dict()
-            if keyword == dict["num"]:
-                result = "問題"+keyword+" : <br>"+format(dict["Question"])+"<br>"+"答案 : <br>"+format(dict["Answer"])+"<br>"+"解釋 : <br>"+format(dict["Explanation"])+"<br>"
+        	for doc in docs:
+            	dict = doc.to_dict()
+            	if keyword == dict["num"]:
+                	result = "問題"+keyword+" : <br>"+format(dict["Question"])+"<br>"+"答案 : <br>"+format(dict["Answer"])+"<br>"+"解釋 : <br>"+format(dict["Explanation"])+"<br>"
             
-        if result == "":
-            result = "是怎樣?皮啊?給我重輸"
-        return result
-    else:
-        return render_template("riddle.html")
+        	if result == "":
+            		result = "是怎樣?皮啊?給我重輸"
+        	return result
+    	else:
+        	return render_template("riddle.html")
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
