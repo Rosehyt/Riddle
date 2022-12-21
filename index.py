@@ -47,28 +47,31 @@ def riddle():
 @app.route("/webhook", methods=["POST"])
 def webhook():
 	req = request.get_json(force=True)
-	action = req.get("queryResult").get("action")
-	session = req.get("session")[-12:-1]  #取最後12個字元
+	#action = req.get("queryResult").get("action")
+	#session = req.get("session")[-12:-1]  #取最後12個字元
 
-    
+   action =  req.get("queryResult").get("action")
+    msg =  req.get("queryResult").get("queryText")
+    info = "動作：" + action + "； 查詢內容：" + msg
+    return make_response(jsonify({"fulfillmentText": info}))
 
-	if (action == "keywordchoice"):
-		keyword = req.get("queryResult").get("parameters").get("keyword")
+	# if (action == "keywordchoice"):
+	# 	keyword = req.get("queryResult").get("parameters").get("keyword")
 
-		collection_ref = db.collection("riddle")
-		docs = collection_ref.get()
-		info =""
-		if(keyword=="物品"):
-			n = random.randint(1, 10)
-			i = docs.to_dict()["item"]
-			for doc in i:
-				dict = doc.to_dict()
-				if n == dict["num"]:
-					info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
-		return make_response(jsonify({"fulfillmentText": info}))
-	else:
-		result = "是怎樣?皮啊?給我重輸"
-		return make_response(jsonify({"fulfillmentText": result}))
+	# 	collection_ref = db.collection("riddle")
+	# 	docs = collection_ref.get()
+	# 	info =""
+	# 	if(keyword=="物品"):
+	# 		n = random.randint(1, 10)
+	# 		i = docs.to_dict()["item"]
+	# 		for doc in i:
+	# 			dict = doc.to_dict()
+	# 			if n == dict["num"]:
+	# 				info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
+	# 	return make_response(jsonify({"fulfillmentText": info}))
+	# else:
+	# 	result = "是怎樣?皮啊?給我重輸"
+	# 	return make_response(jsonify({"fulfillmentText": result}))
 
 if __name__ == "__main__":
     app.run()
