@@ -50,6 +50,11 @@ def webhook():
 	action = req.get("queryResult").get("action")
 	session = req.get("session")[-12:-1]  #取最後12個字元
 
+    action =  req.get("queryResult").get("action")
+    msg =  req.get("queryResult").get("queryText")
+    info = "動作：" + action + "； 查詢內容：" + msg
+    return make_response(jsonify({"fulfillmentText": info}))
+
 	if (action == "keywordchoice"):
 		keyword = req.get("queryResult").get("parameters").get("keyword")
 
@@ -67,4 +72,6 @@ def webhook():
 	else:
 		result = "是怎樣?皮啊?給我重輸"
 		return make_response(jsonify({"fulfillmentText": result}))
-           
+
+if __name__ == "__main__":
+    app.run()
