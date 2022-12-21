@@ -33,9 +33,9 @@ def riddle():
         	result =""
 
         	for doc in docs:
-            	dict = doc.to_dict()
-            	if keyword == dict["num"]:
-                	result = "問題"+keyword+" : <br>"+format(dict["Question"])+"<br>"+"答案 : <br>"+format(dict["Answer"])+"<br>"+"解釋 : <br>"+format(dict["Explanation"])+"<br>"
+            		dict = doc.to_dict()
+            		if keyword == dict["num"]:
+                		result = "問題"+keyword+" : <br>"+format(dict["Question"])+"<br>"+"答案 : <br>"+format(dict["Answer"])+"<br>"+"解釋 : <br>"+format(dict["Explanation"])+"<br>"
             
         	if result == "":
             		result = "是怎樣?皮啊?給我重輸"
