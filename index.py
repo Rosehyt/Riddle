@@ -55,7 +55,7 @@ def webhook():
 	if (action == "keywordchoice"):
 		keyword = req.get("queryResult").get("queryText")
 		result =""
-
+		result += keyword
 		if(keyword=="物品"):
 			n = random.randint(1, 10)
 			result +=n
