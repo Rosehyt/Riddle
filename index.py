@@ -56,14 +56,14 @@ def webhook():
 
     	if (action == "keywordchoice"):
 		keyword = req.get("queryResult").get("parameters").get("keyword")
-		
+		result =""
+
 		if(keyword=="物品"):
 			n = random.randint(1, 10)
 			
             		collection_ref = db.collection("item")
 		    	docs = collection_ref.get()
-		    	result =""
-
+		    	
 			for doc in docs:
 				dict = doc.to_dict()
 				if n == dict["num"]:
