@@ -1,3 +1,6 @@
+import random
+from flask import Flask, render_template, request, make_response, jsonify
+
 import firebase_admin
 import random
 from firebase_admin import credentials, firestore
@@ -40,3 +43,28 @@ def riddle():
         return result
     else:
         return render_template("riddle.html")
+
+@app.route("/webhook", methods=["POST"])
+def webhook():
+	req = request.get_json(force=True)
+	action = req.get("queryResult").get("action")
+	session = req.get("session")[-12:-1]  #取最後12個字元
+
+	if (action == "keywordchoice"):
+		keyword = req.get("queryResult").get("parameters").get("keyword")
+
+		collection_ref = db.collection("riddle")
+		docs = collection_ref.get()
+		info =""
+		if(keyword=="物品"):
+			n = random.randint(1, 10)
+			i = docs.to_dict()["item"]
+			for doc in i:
+				dict = doc.to_dict()
+				if n == dict["num"]:
+					info = "問題"+ n +" : "+format(dict["Question"])+"\n"+"答案 : \n"+format(dict["Answer"])+"\n"+"解釋 : \n"+format(dict["Explanation"])+"\n"
+		return make_response(jsonify({"fulfillmentText": info}))
+	else:
+		result = "是怎樣?皮啊?給我重輸"
+		return make_response(jsonify({"fulfillmentText": result}))
+           

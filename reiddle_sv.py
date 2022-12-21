@@ -18,26 +18,6 @@ def index():
     homepage += "<a href=/random>隨機型謎語</a><br>"
     return homepage
 
-import random
-from flask import Flask, render_template, request, make_response, jsonify
-
-import firebase_admin
-from firebase_admin import credentials, firestore
-cred = credentials.Certificate("serviceAccountKey.json")
-firebase_admin.initialize_app(cred)
-db = firestore.client()
-
-app = Flask(__name__)
-
-@app.route("/")
-def index():
-	homepage = "<h1>猜謎語</h1>"
-	homepage += "<a href=/riddle>物品型謎語</a><br>"
-	homepage += "<a href=/place>地方型謎語</a><br>"
-	homepage += "<a href=/slang>俚語型謎語</a><br>"
-	homepage += "<a href=/random>隨機型謎語</a><br>"
-	return homepage
-
 @app.route("/webhook", methods=["POST"])
 def webhook():
 	req = request.get_json(force=True)
